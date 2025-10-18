@@ -1,5 +1,5 @@
 services:
-  qdant:
-    image: qdrant/qdrant
+  qdrant:
+    image: qdrant/qdrant:latest
     ports:
       - 6333:6333
