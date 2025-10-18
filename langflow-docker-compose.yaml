@@ -1,0 +1,33 @@
+services:
+  langflow:
+    image: langflowai/langflow:latest
+    user: root
+    restart: always
+    ports:
+      - "7860:7860"
+    depends_on:
+      - postgres
+    environment:
+      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@langflow-postgres:5432/langflow
+      - LANGFLOW_CONFIG_DIR=/app/langflow 
+      - LANGFUSE_SECRET_KEY=sk-lf-d8dbacb6-5702-4991-8a79-5d8b6284c69f
+      - LANGFUSE_PUBLIC_KEY=pk-lf-181db6a8-e102-4f91-8192-1683b66e1ac7
+      - LANGFUSE_HOST=http://langfuse-web:3000
+    volumes:
+      - langflow-data:/app/langflow
+
+  langflow-postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: langflow
+      POSTGRES_PASSWORD: langflow
+      POSTGRES_DB: langflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - langflow-postgres:/var/lib/postgresql/data
+
+
+volumes:
+  langflow-postgres:
+  langflow-data:
