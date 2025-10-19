@@ -164,6 +164,9 @@ LANGFUSE_INIT_USER_EMAIL=langfuse-admin@rosatom.ru
 LANGFUSE_INIT_USER_PASSWORD=<пароль>
 ```
 
+### Флоу
+Флоу можно импортировать в Langflow. Пример есть в папке flows
+
 ### Про topic modelling
 Моделирование тем описано в [`vectorize_and_cluster.ipynb`](./vectorize_and_cluster.ipynb). Для запуска необходимо завести окружение и установить необходимые зависимости:
 ```
