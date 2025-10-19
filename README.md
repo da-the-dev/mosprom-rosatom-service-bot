@@ -149,7 +149,7 @@ $ ./generate-creds.sh > .env
 ```bash
 $ docker compose up -d
 ```
-**NB! Сервис vllm опционален, поскольку образ весит 12Gb. Если он нужен, то раскомментируйте соответствующую строку в `docker-compose.yaml`**
+***NB! Сервис vllm опционален, поскольку образ весит 12Gb. Если он нужен, то раскомментируйте соответствующую строку в `docker-compose.yaml`***
 
 ### Как зайти
 В Docker compose поднимаются ключевые сервисы на следующих портах:
@@ -162,6 +162,15 @@ $ docker compose up -d
 ```env
 LANGFUSE_INIT_USER_EMAIL=langfuse-admin@rosatom.ru
 LANGFUSE_INIT_USER_PASSWORD=<пароль>
+```
+
+### Про topic modelling
+Моделирование тем описано в [`vectorize_and_cluster.ipynb`](./vectorize_and_cluster.ipynb). Для запуска необходимо завести окружение и установить необходимые зависимости:
+```
+$ python -m venv .venv
+$ # Активируем среду (зависит от системы, ниже вариант для UNIX систем)
+$ source .venv/bin/activate
+$ pip install jupyter ipykernel ipywidgets
 ```
 
 ### Описания файлов
