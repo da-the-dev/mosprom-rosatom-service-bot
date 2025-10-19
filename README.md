@@ -149,6 +149,7 @@ $ ./generate-creds.sh > .env
 ```bash
 $ docker compose up -d
 ```
+**NB! Сервис vllm опционален, поскольку образ весит 12Gb. Если он нужен, то раскомментируйте соответствующую строку в `docker-compose.yaml`**
 
 ### Как зайти
 В Docker compose поднимаются ключевые сервисы на следующих портах:
@@ -169,5 +170,6 @@ LANGFUSE_INIT_USER_PASSWORD=<пароль>
 | [docker-compose.yaml](docker-compose.yaml)                   | Основной файл, который импортирует настройки для остальных сервисов |
 | [langflow-docker-compose.yaml](langflow-docker-compose.yaml) | Описания сервисов Langflow                                          |
 | [langfuse-docker-compose.yaml](langfuse-docker-compose.yaml) | Описания сервисов Langfuse                                          |
+| [vllm-docker-compose.yaml](vllm-docker-compose.yaml)         | Описания сервиса vllm                                               |
 | [generate-creds.sh](generate-creds.sh)                       | Скрипт для генерации переменных окружения (пароли и секреты)        |
 | [assets/](assets/)                                           | Папка с файлами для README.md и презентаций                         |

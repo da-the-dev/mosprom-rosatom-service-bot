@@ -2,3 +2,4 @@ include:
   - ./langfuse-docker-compose.yaml
   - ./langflow-docker-compose.yaml
   - ./qdrant-docker-compose.yaml
+  # - ./vllm-docker-compose.yaml
