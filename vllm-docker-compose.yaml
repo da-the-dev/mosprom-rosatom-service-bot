@@ -1,0 +1,17 @@
+services:
+  vllm:
+    image: vllm/vllm-openai:latest
+    ports:
+      - 8000:8000
+    volumes:
+      - ${HOME}/.cache/huggingface:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
+    command: --model Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24 --dtype half --max_model_len 15000 --api-key token-123
+    # command: --model google/gemma-2-9b-it --api-key token-123 --dtype half
+    # command: --model IlyaGusev/saiga_nemo_12b --dtype half --max_model_len 15000 --api-key token-123
